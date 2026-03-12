@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# Página Odontológica 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositorio contiene la aplicación web de la clínica odontológica desarrollada con **React**, **TypeScript** y **Vite**. Está diseñada como una landing page informativa para mostrar servicios, testimonios y facilitar el contacto con los pacientes.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologías principales
 
-## React Compiler
+- **React 18** con JSX/TSX
+- **TypeScript** para tipado estático
+- **Vite** como empaquetador y servidor de desarrollo
+- **Tailwind CSS** para estilos utilitarios
+- **ESLint** y **Prettier** para calidad de código
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
 
-## Expanding the ESLint configuration
+## Instalación
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/tu-usuario/Pagina_odontologica.git
+   cd Pagina_odontologica/clinica
+   ```
+2. Instala dependencias:
+   ```bash
+   npm install
+   # o yarn / pnpm
+   ```
+3. Inicia el servidor de desarrollo:
+   ```bash
+   npm run dev
+   ```
+   Accede a `http://localhost:5173` en el navegador.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Estructura del proyecto
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+clinica/
+├── public/          # Archivos estáticos (favicon, imágenes)
+├── src/
+│   ├── assets/      # Imágenes y recursos
+│   ├── components/  # Componentes reutilizables
+│   ├── styles/      # CSS globales
+│   └── main.tsx     # Punto de entrada
+└── vite.config.ts   # Configuración de Vite
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Componentes destacados
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- `Navbar`, `Hero`, `About`, `Services`, `Testimonials`, `Contact`, `Footer`
+- Carpeta `components/ui` incluye utilidades y componentes de diseño (botones, formularios, menús, etc.)
+
+
+## Uso y desarrollo
+
+- Añade o modifica secciones en `src/components` según requieras.
+- Utiliza el sistema de componentes de la carpeta `ui` para mantener consistencia visual.
+- Ejecuta `npm run build` para generar la versión de producción.
